@@ -2,6 +2,8 @@
 
 This tugger chart is a kubernetes admission webhook to enforce pulling of docker images from the harbor registry.
 
+Based on https://github.com/jainishshah17/tugger
+
 
 ```shell
     export CHART_NAME=tugger

@@ -35,26 +35,26 @@ docker:
 # Use regex patterns for image name matching and replacement. See readme.
 # Disables/replaces docker.registryUrl and docker.ifExists.
 rules:
- - pattern: ghcr.io(.*)
-   replacement: "{{.Values.harborUrl}}/github$1"
- - pattern: registry.gitlab.com(.*)
-   replacement: "{{.Values.harborUrl}}/gitlab$1"
- - pattern: docker.elastic.co(.*)
-   replacement: "{{.Values.harborUrl}}/elastic$1"
- - pattern: k8s.gcr.io(.*)
-   replacement: "{{.Values.harborUrl}}/google-cloud$1"
- - pattern: docker.io(.*)
-   replacement: "{{.Values.harborUrl}}/docker$1"
- - pattern: quay.io(.*)
-   replacement: "{{.Values.harborUrl}}/quay$1"
- - pattern: gcr.io(.*)
-   replacement: "{{.Values.harborUrl}}/gcr$1"
-   # match only images without namespace for example do not match grafana/grafana:latest but nginx:latest
- - pattern: ^[^\/]+$
-   replacement: "{{.Values.harborUrl}}/docker/library/$0"
- - pattern: (.*)
-   replacement: "{{.Values.harborUrl}}/docker/$1"
- - pattern: .*
+  - pattern: ghcr.io(.*)
+    replacement: "{{.Values.harborUrl}}/github$1"
+  - pattern: registry.gitlab.com(.*)
+    replacement: "{{.Values.harborUrl}}/gitlab$1"
+  - pattern: docker.elastic.co(.*)
+    replacement: "{{.Values.harborUrl}}/elastic$1"
+  - pattern: k8s.gcr.io(.*)
+    replacement: "{{.Values.harborUrl}}/google-cloud$1"
+  - pattern: gcr.io(.*)
+    replacement: "{{.Values.harborUrl}}/google-cloud$1"
+  - pattern: docker.io(.*)
+    replacement: "{{.Values.harborUrl}}/dockerhub$1"
+  - pattern: quay.io(.*)
+    replacement: "{{.Values.harborUrl}}/quay$1"
+    # match only images without namespace for example do not match grafana/grafana:latest but nginx:latest
+  - pattern: ^[^\/]+$
+    replacement: "{{.Values.harborUrl}}/dockerhub/library/$0"
+  - pattern: (.*)
+    replacement: "{{.Values.harborUrl}}/dockerhub/$1"
+  - pattern: .*
 
 # Whitelist namespaces e.g "[kubesystem,default,development]"
 whitelistNamespaces:
