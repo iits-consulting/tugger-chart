@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 harborUrl: REPLACED_BY_ARGOCD
 
-replicaCount: 1
+replicaCount: 2
 
 ## Role Based Access Control
 ## Ref: https://kubernetes.io/docs/admin/authorization/rbac/
