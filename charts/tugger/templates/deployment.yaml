@@ -23,8 +23,10 @@ spec:
         checksum/admissionregistration: {{ include (print $.Template.BasePath "/admission-registration.yaml") . | sha256sum }}
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
+      {{- if .Values.imagePullSecrets}}
       imagePullSecrets:
-      - name: docker-configs-dockerhub-secret
+      - name: {{.Values.imagePullSecrets.name}}
+      {{- end}}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"

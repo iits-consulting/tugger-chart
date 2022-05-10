@@ -131,3 +131,6 @@ readinessProbe:
   timeoutSeconds: 3
   failureThreshold: 1
   successThreshold: 1
+
+#imagePullSecrets:
+#  name: dockerhub-secret
